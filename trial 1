@@ -1,0 +1,15 @@
+library(knitr)
+opts_chunk$set(echo = TRUE, result = 'hold')
+library(data.table)
+library(ggplot2)
+
+rdata <- read.csv('activity.csv', header = TRUE, sep =",", colclasses=c("numeric" ,"character" , "numeric"))
+
+rdata$date <- as.data(rdata$date, formate="%Y-%m-%d")
+rdata$interval <- as.factor(rdata$interval)
+
+str(rdata)
+
+steps_per_day <- aggregate(step ~ date,rdata, sum)
+colnames(steps_per_day) <-c("data" , "steps")
+head(steps_per_day)
