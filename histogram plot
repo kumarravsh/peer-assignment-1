@@ -1,0 +1,4 @@
+ggplot(steps_per_day, aes(x = steps)) + 
+       geom_histogram(fill = "green", binwidth = 1000) + 
+        labs(title="Histogram of Steps Taken per Day", 
+             x = "Number of Steps per Day", y = "Number of times in a day(Count)") + theme_bw() 
